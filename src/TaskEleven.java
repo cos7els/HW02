@@ -5,20 +5,32 @@ public class TaskEleven {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the number for convert = ");
         int x = in.nextInt();
-        System.out.print("Choose the numeral system: 2, 3, 4, 5, 6, 7, 8, 16");
+        System.out.print("Choose the numeral system: 2, 3, 4, 5, 6, 7, 8, 16: ");
         int numeralSystem = in.nextInt();
+        in.close();
         switch (numeralSystem) {
-            case(2):
+            case 2:
+                decimalToBinary(x);
+                break;
+            case 3:
+                decimalToTernary(x);
+                break;
+            case 4:
+                decimalToQuaternary(x);
+                break;
+            case 5:
+                decimalToQuinary(x);
+                break;
+            case 6:
+                decimalToSenary(x);
+                break;
+            case 8:
+                decimalToOctal(x);
+                break;
+            case 16:
+                decimalToHex(x);
                 break;
         }
-        in.close();
-        decimalToBinary(x);
-        decimalToTernary(x);
-        decimalToQuaternary(x);
-        decimalToQuinary(x);
-        decimalToSenary(x);
-        decimalToOctal(x);
-        System.out.println(decimalToHex(x));
     }
 
     public static String decimalToBinary(int decNumber) {
@@ -27,65 +39,76 @@ public class TaskEleven {
             binNumber.append(decNumber % 2);
             decNumber /= 2;
         }
-        return binNumber.reverse().toString();
+        String result = binNumber.reverse().toString();
+        System.out.println("In ternary numeral system = " + result);
+        return result;
     }
 
-    public static void decimalToTernary(int decNumber) {
+    public static String decimalToTernary(int decNumber) {
         StringBuilder terNumber = new StringBuilder();
-        int resultBinNumber;
+        String result;
         while (decNumber > 0) {
             terNumber.append(decNumber % 3);
             decNumber /= 3;
         }
-        resultBinNumber = Integer.parseInt(terNumber.reverse().toString());
-        System.out.println("In ternary numeral system = " + resultBinNumber);
+        result = terNumber.reverse().toString();
+        System.out.println("In ternary numeral system = " + result);
+        return result;
     }
 
-    public static void decimalToQuaternary(int decNumber) {
+    public static String decimalToQuaternary(int decNumber) {
         StringBuilder quatNumber = new StringBuilder();
-        int resultBinNumber;
+        String result;
         while (decNumber > 0) {
             quatNumber.append(decNumber % 4);
             decNumber /= 4;
         }
-        resultBinNumber = Integer.parseInt(quatNumber.reverse().toString());
-        System.out.println("In quaternary numeral system = " + resultBinNumber);
+        result = quatNumber.reverse().toString();
+        System.out.println("In quaternary numeral system = " + result);
+        return result;
     }
 
-    public static void decimalToQuinary(int decNumber) {
+    public static String decimalToQuinary(int decNumber) {
         StringBuilder quinNumber = new StringBuilder();
-        int resultBinNumber;
+        String result;
         while (decNumber > 0) {
             quinNumber.append(decNumber % 5);
             decNumber /= 5;
         }
-        resultBinNumber = Integer.parseInt(quinNumber.reverse().toString());
-        System.out.println("In quinary numeral system = " + resultBinNumber);
+        result = quinNumber.reverse().toString();
+        System.out.println("In quinary numeral system = " + result);
+        return result;
     }
-    public static void decimalToSenary(int decNumber) {
+
+    public static String decimalToSenary(int decNumber) {
         StringBuilder senNumber = new StringBuilder();
-        int resultBinNumber;
+        String result;
         while (decNumber > 0) {
             senNumber.append(decNumber % 6);
             decNumber /= 6;
         }
-        resultBinNumber = Integer.parseInt(senNumber.reverse().toString());
-        System.out.println("In senary numeral system = " + resultBinNumber);
+        result = senNumber.reverse().toString();
+        System.out.println("In senary numeral system = " + result);
+        return result;
     }
-    public static void decimalToOctal(int decNumber) {
+
+    public static String decimalToOctal(int decNumber) {
         StringBuilder octalNumber = new StringBuilder();
-        int resultBinNumber;
+        String result;
         while (decNumber > 0) {
             octalNumber.append(decNumber % 8);
             decNumber /= 8;
         }
-        resultBinNumber = Integer.parseInt(octalNumber.reverse().toString());
-        System.out.println("In octal numeral system = " + resultBinNumber);
+        result = octalNumber.reverse().toString();
+        System.out.println("In octal numeral system = " + result);
+        return result;
     }
+
     public static String decimalToHex(int decNumber) {
         StringBuilder binaryNumber = new StringBuilder(decimalToBinary(decNumber));
         StringBuilder binaryTempNumber = new StringBuilder();
         StringBuilder hexNumber = new StringBuilder();
+        String result;
         if (binaryNumber.length() % 4 == 1) {
             binaryTempNumber.append("000").append(binaryNumber);
         } else if (binaryNumber.length() % 4 == 2) {
@@ -131,6 +154,8 @@ public class TaskEleven {
                 hexNumber.append("F");
             }
         }
-        return hexNumber.toString();
+        result = hexNumber.toString();
+        System.out.println("In hexadecimal numeral system = " + result);
+        return result;
     }
 }
