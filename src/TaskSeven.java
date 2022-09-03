@@ -5,6 +5,7 @@ public class TaskSeven {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the value of x = ");
         double x = in.nextDouble();
+        in.close();
         round(x);
     }
     public static void round(double x) {

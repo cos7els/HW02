@@ -7,6 +7,7 @@ public class TaskFive {
         int x = in.nextInt();
         System.out.print("Enter the value of y = ");
         int y = in.nextInt();
+        in.close();
         division(x, y);
     }
 
